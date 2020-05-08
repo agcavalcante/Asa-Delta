@@ -19,7 +19,7 @@ $data 		= $utils->getNoticeByID($objConn, $idNoticia);
 		require_once __DIR__ .'/meioHeader.php';
 	?>
 	<a href="#"><?= $data["author"] ?></a>
-                em 01/03/2018</span>
+                em <?= $data["date"] ?></span>
 	<?php
 		require_once __DIR__ .'/meioHeaderDois.php';
 	?>
