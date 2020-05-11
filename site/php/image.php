@@ -4,10 +4,10 @@
             $name = md5(rand(100, 200));
             $ext = explode('.', $_FILES['file']['name']);
             $filename = $name . '.' . $ext[1];
-            $destination = 'C:\Users\gabri\Área de Trabalho' . $filename; //change this directory
+            $destination = './assets/images/' . $filename; //change this directory
             $location = $_FILES["file"]["tmp_name"];
             move_uploaded_file($location, $destination);
-            echo 'C:\Users\gabri\Área de Trabalho' . $filename;//change this URL
+            echo '../php/assets/images/' . $filename;//change this URL
         }
         else
         {
