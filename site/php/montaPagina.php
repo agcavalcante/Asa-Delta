@@ -13,6 +13,10 @@ $data 		= $utils->getNoticeByID($objConn, $idNoticia);
 	<?php
 		require_once __DIR__ .'/downHeader.php';
 	?>
+	<header class="masthead" style="background-image: url('<?= $data["postImage"]?>')">
+	<?php
+		require_once __DIR__ .'/dowDowHeader.php';
+	?>
 		<h1><?= $data["titulo_noticia"] ?></h1>
 		<h2 class="subheading"><?= $data["subtitulo_noticia"] ?></h2>
 	<?php

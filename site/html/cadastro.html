@@ -27,20 +27,12 @@
 					<br>
 					<!-- Email -->
 					<input type="text" name="subtitulo_noticia" class="form-control mb-4" placeholder="Subtitulo">
-
-					<!-- Subject
-					<label>Subject</label>
-					<select class="browser-default custom-select mb-4">
-						<option value="" disabled>Choose option</option>
-						<option value="1" selected>Feedback</option>
-						<option value="2">Report a bug</option>
-						<option value="3">Feature request</option>
-						<option value="4">Feature request</option>
-					</select> -->
-
+					<!-- img header upload-->
+					<label for="exampleFormControlFile1">Header image upload</label>
+					<input type="file" class="form-control-file" id="exampleFormControlFile1">
+					<input type="hidden" id="urlimage" name="urlimage" value="">
 					<!-- Message -->
-						<textarea id="summernote" name="editordata"></textarea>
-
+					<textarea id="summernote" name="editordata"></textarea>
 					<!-- Send button -->
 					<button class="btn btn-info btn-block" type="submit">Send</button>
 
@@ -79,6 +71,22 @@
 			}
 		});
 	}
+
+	$('#exampleFormControlFile1').on('change', function(files) {
+		data = new FormData();
+		data.append("file", this.files[0]);
+		$.ajax({
+			data: data,
+			type: "POST",
+			url: "../php/image.php", //replace with your url
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function (url) {
+				document.getElementById("urlimage").value = url;
+			}
+		});
+	});
 </script>
 
 </html>
